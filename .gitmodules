@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/Zenburn"]
 	path = .vim/bundle/Zenburn
 	url = https://github.com/jnurmine/Zenburn
+[submodule ".vim/bundle/jedi-vim"]
+	path = .vim/bundle/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git
