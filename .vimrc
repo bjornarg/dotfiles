@@ -5,11 +5,14 @@ set expandtab
 set t_Co=256
 colorscheme zenburn
 
-
 " NERDtree settings
-autocmd vimenter * NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
-" jedi-vim settings
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#popup_on_dot = 0
+if !exists("g:ycm_semantic_triggers")
+  let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers['typescript'] = ['.']
+
+:autocmd BufRead,BufNewFile /home/bjornarg/Development/norbit/* setlocal expandtab!
