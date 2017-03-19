@@ -22,6 +22,19 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'SirVer/ultisnips'
 " Actual snippets
 Plugin 'honza/vim-snippets'
+" Status line
+Plugin 'vim-airline/vim-airline'
+" Show active buffers
+Plugin 'weynhamz/vim-plugin-minibufexpl'
+" -- Language plugins --
+" Google Go
+Plugin 'fatih/vim-go.git'
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+" Rust
+Plugin 'rust-lang/rust.vim'
+" Elixir
+Plugin 'elixir-lang/vim-elixir'
 
 call vundle#end()
 
@@ -38,6 +51,7 @@ if !exists("g:ycm_semantic_triggers")
   let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers['typescript'] = ['.']
+let g:ycm_python_binary_path = '/usr/bin/python3'
 
 " (http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme)
 " make YCM compatible with UltiSnips (using supertab)
@@ -49,3 +63,35 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+au BufNewFile,BufRead *.pyi set filetype=python
+
+" Highlight line with cursor
+set cursorline
+" Show autocompletion of wildcards
+set wildmenu
+
+" Set , to leader
+let mapleader=","
+" Set "jk" to esc
+inoremap jk <esc>
+
+" Search as characters are entered
+set incsearch
+" Highlight search
+set hlsearch
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding
+set foldenable
+set foldlevelstart=1
+set foldnestmax=10
+nnoremap <space> za
+set foldmethod=syntax
+
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+" Use silver searcher ag with CtrlP
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
