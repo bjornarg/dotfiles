@@ -35,6 +35,10 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'rust-lang/rust.vim'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+" Vue.js plugin
+Plugin 'posva/vim-vue'
+" Elm plugin
+Plugin 'elmcast/elm-vim'
 
 call vundle#end()
 
@@ -95,3 +99,5 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 " Use silver searcher ag with CtrlP
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+" Enable elm autocompletion with YCM
+let g:ycm_semantic_triggers['elm'] = ['.']
