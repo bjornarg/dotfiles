@@ -39,6 +39,9 @@ Plugin 'elixir-lang/vim-elixir'
 Plugin 'posva/vim-vue'
 " Elm plugin
 Plugin 'elmcast/elm-vim'
+" Javascript/JSX
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 call vundle#end()
 
@@ -89,7 +92,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Folding
 set foldenable
-set foldlevelstart=1
+set foldlevelstart=5
 set foldnestmax=10
 nnoremap <space> za
 set foldmethod=syntax
