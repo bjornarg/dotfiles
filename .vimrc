@@ -29,8 +29,6 @@ Plugin 'weynhamz/vim-plugin-minibufexpl'
 " -- Language plugins --
 " Google Go
 Plugin 'fatih/vim-go.git'
-" Typescript
-Plugin 'leafgarland/typescript-vim'
 " Rust
 Plugin 'rust-lang/rust.vim'
 " Elixir
@@ -42,6 +40,11 @@ Plugin 'elmcast/elm-vim'
 " Javascript/JSX
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
+" Typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'ianks/vim-tsx'
+" Syntax checker
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 
@@ -71,7 +74,9 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+" Filetypes
 au BufNewFile,BufRead *.pyi set filetype=python
+au BufNewFile,BufRead *.tsx,*jsx set filetype=typescript.tsx
 
 " Highlight line with cursor
 set cursorline
@@ -104,3 +109,18 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 " Enable elm autocompletion with YCM
 let g:ycm_semantic_triggers['elm'] = ['.']
+
+" hilight non-breaking space
+au VimEnter,BufWinEnter * syntax match ErrorMsg " "
+hi ErrorMsg ctermbg=174 cterm=underline ctermfg=0
+
+" Syntastic setup
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_typescript_checkers = ['tslint']
