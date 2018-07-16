@@ -1,0 +1,12 @@
+" Set , to leader
+let mapleader=","
+
+" Set "jk" to esc
+inoremap jk <esc>
+
+nmap <leader>i :action GotoImplementation<CR>
+nmap <leader>t :action GotoTest<CR>
+nmap <leader>f :action FindInPath<CR>
+nmap <leader>u :action FindUsages<CR>
+nmap <leader>n :action GotoFile<CR>
+nmap <leader>r :action RenameElement<CR>

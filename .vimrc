@@ -124,3 +124,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_typescript_checkers = ['tslint']
+
+" Jump between windows
+noremap <leader>h <c-w>h
+noremap <leader>l <c-w>l
+noremap <leader>j <c-w>j
+noremap <leader>k <c-w>k
